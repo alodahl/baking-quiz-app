@@ -1,0 +1,75 @@
+/*body * {
+  border: 1px dotted red;
+}*/
+
+body {
+  background-color: #5202C9;
+}
+
+.pie {
+  width: 90px;
+  float: right;
+  position: relative;
+  bottom: 70px;
+  right: 100px;
+}
+
+.pretzel {
+  width: 70px;
+  position: relative;
+  top: 70px;
+  left: 130px;
+}
+
+h1, p {
+  text-align: center;
+}
+
+h1 {
+  color: #FFF1C1;
+}
+
+p {
+  font-size: 20px;
+  color: black;
+}
+
+.quiz {
+  border: 2px solid gray;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 3px;
+  background-color: #FFF1C1;
+}
+
+.quizquestion {
+  margin-bottom: 20px;
+}
+
+span {
+  display: block;
+  font-size: 18px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.correctanswerimage {
+  display: block;
+  width: 350px;
+  height: 200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.submit{
+  display: block;
+  margin: 0 auto;
+  width: 80px;
+  height: 40px;
+  background-color: #2E0093;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}

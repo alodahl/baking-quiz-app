@@ -145,7 +145,7 @@ function handleNextQuestionButtonClick() {
 
 function getCorrectFeedbackPage(){
   let correctFeedbackHtml = `<section role="dialog" class="quiz">
-  <p>Correct!</p><img class="correctanswerimage" src="https://media.giphy.com/media/cqLxStdbAGVnW/giphy.gif" alt="Tina Fey eats a cupcake sandwich">
+  <p>Correct!</p><img class="feedback-image correctanswerimage" src="https://media.giphy.com/media/cqLxStdbAGVnW/giphy.gif" alt="Tina Fey eats a cupcake sandwich">
   <button class="submit button js-next-ques-button" type="submit">Next Question</button>
   </section>`;
   $('.insertQuizQuestion').empty();
@@ -180,17 +180,17 @@ function generateQuestionPage() {
 
   return `<form class="quiz" name="quizquestion"><section class="quizquestion" id="radio-button-form" role="radiogroup">
   <p class="question">Question ${i + 1}/10: ${questionList[i].questionText} (choose one)</p>
-  <span role="radio"><input type="radio" name="answer0" id="answer0" value="0">
-  <label for="answer0" name="answer0">${questionList[i].answers[0]}</label>
+  <span role="radio"><input type="radio" name="radio" id="answer0" value="0" required="required">
+  <label for="answer0">${questionList[i].answers[0]}</label>
   <br></span>
-  <span role="radio"><input type="radio" name="answer1" id="answer1" value="1">
-  <label for="answer1" name="answer1">${questionList[i].answers[1]}</label>
+  <span role="radio"><input type="radio" name="radio" id="answer1" value="1" required="required"
+  <label for="answer1">${questionList[i].answers[1]}</label>
   <br></span>
-  <span role="radio"><input type="radio" name="answer2" id="answer2" value="2">
-  <label for="answer2" name="answer2">${questionList[i].answers[2]}</label>
+  <span role="radio"><input type="radio" name="radio" id="answer2" value="2" required="required">
+  <label for="answer2">${questionList[i].answers[2]}</label>
   <br></span>
-  <span role="radio"><input type="radio" name="answer3" id="answer3" value="3">
-  <label for="answer3" name="answer3">${questionList[i].answers[3]}</label><br></span>
+  <span role="radio"><input type="radio" name="radio" id="answer3" value="3" required="required">
+  <label for="answer3">${questionList[i].answers[3]}</label><br></span>
   </section>
   <button class="submit js-submit-radio-form button" type='submit'>Submit</button></form>`;
 }
@@ -205,7 +205,7 @@ function renderFinalPage() {
 function generateFinalPage() {
   console.log("generateFinalPage ran");
   return`<section role="dialog" class="quiz">
-  <p>You scored ${numCorrect}/10!</p><img class="correctanswerimage"  src="https://i.giphy.com/media/l1J3A70hF2PUEh7pu/giphy.webp" alt="Tina Fey dips a grilled cheese into sheetcake">
+  <p>You scored ${numCorrect}/10!</p><img class="feedback-image"  src="https://i.giphy.com/media/l1J3A70hF2PUEh7pu/giphy.webp" alt="Tina Fey dips a grilled cheese into sheetcake">
   <button class="submit js-start-quiz-button button" type="submit">Try Again</button>
   </section>`;
 }

@@ -115,7 +115,7 @@ function handleUserAnswerSubmission() {
     let choice = event.currentTarget.value;
     console.log(`user choice was ${choice} for question ${i + 1}/10. The correct answer was ${questionList[i].rightAnswerIndex}`);
 
-    $('.insertQuizQuestion').on('click', `.js-submit-radio-form`, function(event) {
+    $(`.js-submit-radio-form`).on('click', function(event) {
       event.preventDefault();
       if (questionList[i].rightAnswerIndex == choice) {
         numCorrect++;
@@ -125,7 +125,7 @@ function handleUserAnswerSubmission() {
         getIncorrectFeedbackPage();
       }
       i++;
-      console.log("handleUserAnswerSubmission ran");
+      console.log("whole handleUserAnswerSubmission ran");
     })
   })
 }

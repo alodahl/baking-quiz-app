@@ -3,22 +3,32 @@
 }*/
 
 body {
-  background-color: #5202C9;
+  background-image: url('http://cdn.pcwallart.com/images/apple-pie-wallpaper-4.jpg');
+/*background-image: url('http://wallup.net/wp-content/uploads/2014/08/nuts-cinnamon-cookies.jpg');*/
+background-size: 1200px;
+  /*background-color: #5202C9;*/
 }
 
 .pie {
-  width: 90px;
-  float: right;
-  position: relative;
+  width: 80px;
+  /*float: right;*/
+  /*position: relative;
   bottom: 70px;
-  right: 100px;
+  right: 100px;*/
+  position: absolute;
+  top: 7px;
+  right: 15px;
+  margin: 5px;
 }
 
 .pretzel {
   width: 70px;
-  position: relative;
+  /*position: relative;
   top: 70px;
-  left: 130px;
+  left: 130px;*/
+  position: absolute;
+  top: 0;
+  left: 25px;
 }
 
 h1, p {
@@ -26,7 +36,10 @@ h1, p {
 }
 
 h1 {
-  color: #FFF1C1;
+  font-size: 60px;
+  font-family: 'Pacifico', cursive;
+  color: #F0D5D5;
+  text-shadow: 3px 3px 3px black;
 }
 
 p {
@@ -35,7 +48,7 @@ p {
 }
 
 .quiz {
-  border: 2px solid gray;
+  border: 2px solid black;
   padding: 20px;
   margin: 20px;
   border-radius: 3px;
@@ -61,15 +74,41 @@ span {
   padding: 10px;
 }
 
-.submit{
+.button {
   display: block;
   margin: 0 auto;
   width: 80px;
   height: 40px;
-  background-color: #2E0093;
+  background-color: #993333;
+  /*background-color: #2E0093;*/
   color: white;
 }
 
 .hidden {
   display: none;
+}
+
+@media only screen and (min-width: 600px) {
+
+  .pie {
+    width: 90px;
+    float: right;
+    position: relative;
+    top: -75px;
+    right: 100px;
+  }
+
+  .pretzel {
+    width: 70px;
+    position: relative;
+    top: 80px;
+    left: 130px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+
+  body {
+  background-size: 1600px;
+  }
 }

@@ -68,8 +68,7 @@ span {
 
 .feedback-image {
   display: block;
-  width: 350px;
-  height: 200px;
+  width: 90%;
   margin: 10px auto;
   border: 2px solid black;
 }
@@ -87,6 +86,12 @@ span {
 
 .hidden {
   display: none;
+}
+@media only screen and (min-width: 450px) {
+  .feedback-image {
+    width: 350px;
+    height: 200px;
+  }
 }
 
 @media only screen and (min-width: 600px) {

@@ -95,6 +95,9 @@ const questionList = [
 
 let i = 0;
 let numCorrect = 0;
+let userMadeChoice = false;
+let userClickedSubmit = false;
+let choice;
 
 function handleStartQuizButtonClick() {
   $('body').on('click', '.js-start-quiz-button', event => {
@@ -109,25 +112,33 @@ function handleStartQuizButtonClick() {
   })
 }
 
-function handleUserAnswerSubmission() {
+function handleUserAnswerChosen() {
   $('.insertQuizQuestion').on('change', 'input', function(event) {
     event.preventDefault();
-    let choice = event.currentTarget.value;
+    userMadeChoice = true;
+    userClickedSubmit = false;
+    choice = event.currentTarget.value;
     console.log(`user choice was ${choice} for question ${i + 1}/10. The correct answer was ${questionList[i].rightAnswerIndex}`);
+  })
+}
 
-    $(`.js-submit-radio-form`).on('click', function(event) {
+function handleUserAnswerSubmitted() {
+    $('.insertQuizQuestion').on('click', `.js-submit-radio-form`, function(event) {
       event.preventDefault();
-      if (questionList[i].rightAnswerIndex == choice) {
+      userClickedSubmit = true;
+
+      if ((questionList[i].rightAnswerIndex == choice) && userMadeChoice && userClickedSubmit) {
         numCorrect++;
         console.log(`${numCorrect} correct answers`);
         getCorrectFeedbackPage();
-      } else {
+        i++;
+      } else if (userMadeChoice && userClickedSubmit) {
         getIncorrectFeedbackPage();
+        i++;
       }
-      i++;
-      console.log("whole handleUserAnswerSubmission ran");
+      userMadeChoice = false;
+      userClickedSubmit = false;
     })
-  })
 }
 
 //on button click, generate next quiz page
@@ -213,7 +224,8 @@ function generateFinalPage() {
 function runBakingQuiz() {
   //run event listeners
   handleStartQuizButtonClick();
-  handleUserAnswerSubmission();
+  handleUserAnswerChosen();
+  handleUserAnswerSubmitted();
   handleNextQuestionButtonClick();
   // displayNumberCorrect();
 }

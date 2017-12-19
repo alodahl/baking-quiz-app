@@ -1,97 +1,4 @@
-"use strict";
 var $ = window.jQuery;
-
-const questionList = [
-  {questionText: "All of the following sugars are white, except:",
-  answers:[
-    "beet sugar",
-    "turbinado sugar",
-    "castor sugar",
-    "cane sugar"
-  ],
-  rightAnswerIndex:1
-},{
-  questionText: "How did the pound cake get its name?",
-  answers:[
-    "A traditional pound cake weighs one pound.",
-    "A traditional pound cake is very dense.",
-    "A traditional pound cake is made with one pound each of flour, butter, eggs, and sugar.",
-    "Part of the process involves pounding the butter."
-  ],
-  rightAnswerIndex:2
-},{
-  questionText: "Which spice is not typically used in apple pie filling?",
-  answers:[
-    "coriander",
-    "allspice",
-    "nutmeg",
-    "clove"
-  ],
-  rightAnswerIndex:0
-},{
-  questionText: "Which type of chocolate has the highest percentage of cocoa?",
-  answers:[
-    "baking chocolate",
-    "semi-sweet chocolate",
-    "bittersweet chocolate",
-    "milk chocolate"
-  ],
-  rightAnswerIndex:0
-},{
-  questionText: "What is the purpose of eggwash?",
-  answers:[
-    "It is for cleaning eggs before use in a recipe.",
-    "It is the base for certain sauces.",
-    "It is useful for cleaning burnt pans.",
-    "It gives crusts shine and a golden-brown color."
-  ],
-  rightAnswerIndex:3
-},{
-  questionText: "Which of these has the highest gluten content?",
-  answers:[
-    "cake flour",
-    "bread flour",
-    "wheat flour",
-    "all-purpose flour"
-  ],
-  rightAnswerIndex:1
-},{
-  questionText: "What gives pretzels their characteristic brown crust?",
-  answers:[
-    "baking soda",
-    "eggwash",
-    "a high baking temperature",
-    "molasses"
-  ],
-  rightAnswerIndex:0
-},{
-  questionText: "What is sweet cream butter?",
-  answers:[
-    "butter with added sugar",
-    "a type of frosting",
-    "unsalted butter",
-    "a mixture of butter and cream"
-  ],
-  rightAnswerIndex:2
-},{
-  questionText: "Which of the following would be an appropriate oil tempurature for frying donuts?",
-  answers:[
-    "250° F",
-    "350° F",
-    "450° F",
-    "550° F"
-  ],
-  rightAnswerIndex:1
-},{
-  questionText: "What is involved in tempering chocolate?",
-  answers:[
-    "Cooling melted chocolate in a mold.",
-    "Melting chocolate, bringing the temperature down, bringing the temperature up again before cooling in a mold.",
-    "Whipping air into the melted chocolate.",
-    "Mixing cream and sugar into cocoa paste."
-  ],
-  rightAnswerIndex:1
-}];
 
 let i = 0;
 let numCorrect = 0;
@@ -118,7 +25,6 @@ function handleUserAnswerChosen() {
     userMadeChoice = true;
     userClickedSubmit = false;
     choice = event.currentTarget.value;
-    console.log(`user choice was ${choice} for question ${i + 1}/10. The correct answer was ${questionList[i].rightAnswerIndex}`);
   })
 }
 
@@ -129,7 +35,6 @@ function handleUserAnswerSubmitted() {
 
       if ((questionList[i].rightAnswerIndex == choice) && userMadeChoice && userClickedSubmit) {
         numCorrect++;
-        console.log(`${numCorrect} correct answers`);
         getCorrectFeedbackPage();
         i++;
       } else if (userMadeChoice && userClickedSubmit) {
@@ -145,7 +50,6 @@ function handleUserAnswerSubmitted() {
 function handleNextQuestionButtonClick() {
   $('.insertQuizQuestion').on('click', '.js-next-ques-button', event => {
     event.preventDefault();
-    console.log("handleNextQuestionButtonClick ran");
     if (i === 10) {
       renderFinalPage();
     } else {
@@ -181,14 +85,11 @@ function getIncorrectFeedbackPage() {
 //empty the ".insert..." div, then generate next question page and place it inside the div
 
 function renderQuestionPage() {
-  console.log("renderQuestionPage ran");
   $('.question').empty();
   $('.insertQuizQuestion').html(generateQuestionPage());
 }
 
 function generateQuestionPage() {
-  console.log("generateQuestionPage ran");
-
   return `<form class="quiz" name="quizquestion"><section class="quizquestion" id="radio-button-form" role="radiogroup">
   <p class="question">Question ${i + 1}/10: ${questionList[i].questionText} (choose one)</p>
   <span role="radio"><input type="radio" name="radio" id="answer0" value="0" required="required">
@@ -207,27 +108,23 @@ function generateQuestionPage() {
 }
 
 function renderFinalPage() {
-  console.log("renderFinalPage ran");
-
   $('.question').empty();
   $('.insertQuizQuestion').html(generateFinalPage());
 }
 
 function generateFinalPage() {
-  console.log("generateFinalPage ran");
   return`<section role="dialog" class="quiz">
   <p>You scored ${numCorrect}/10!</p><img class="feedback-image"  src="https://i.giphy.com/media/l1J3A70hF2PUEh7pu/giphy.webp" alt="Tina Fey dips a grilled cheese into sheetcake">
   <button class="submit js-start-quiz-button button" type="submit">Try Again</button>
   </section>`;
 }
 
+//run event listeners
 function runBakingQuiz() {
-  //run event listeners
   handleStartQuizButtonClick();
   handleUserAnswerChosen();
   handleUserAnswerSubmitted();
   handleNextQuestionButtonClick();
-  // displayNumberCorrect();
 }
 
 $(runBakingQuiz);

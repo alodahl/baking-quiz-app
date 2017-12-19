@@ -1,34 +1,6 @@
-/*body * {
-  border: 1px dotted red;
-}*/
-
 body {
   background-image: url('http://cdn.pcwallart.com/images/apple-pie-wallpaper-4.jpg');
-/*background-image: url('http://wallup.net/wp-content/uploads/2014/08/nuts-cinnamon-cookies.jpg');*/
-background-size: 1200px;
-  /*background-color: #5202C9;*/
-}
-
-.pie {
-  width: 80px;
-  /*float: right;*/
-  /*position: relative;
-  bottom: 70px;
-  right: 100px;*/
-  position: absolute;
-  top: 7px;
-  right: 15px;
-  margin: 5px;
-}
-
-.pretzel {
-  width: 70px;
-  /*position: relative;
-  top: 70px;
-  left: 130px;*/
-  position: absolute;
-  top: 0;
-  left: 25px;
+  background-size: 1200px;
 }
 
 h1, p {
@@ -37,7 +9,7 @@ h1, p {
 
 h1 {
   font-size: 60px;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Pacifico', 'Bickham Script Pro', Georgia;
   color: #F0D5D5;
   text-shadow: 3px 3px 3px black;
 }

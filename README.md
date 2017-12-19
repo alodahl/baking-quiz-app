@@ -7,4 +7,4 @@ This baking quiz has 10 questions to test your baking knowledge.
 
 This app was built with JavaScript, jQuery, HTML, and CSS.
 
-![Baking Quiz App Screenshot](baking-quiz-screenshot.png =500x)
+![Baking Quiz App Screenshot](baking-quiz-screenshot.png){:width="400px"}
